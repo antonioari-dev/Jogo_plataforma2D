@@ -1,0 +1,17 @@
+# Arquivos binários compilados (na versão de exportação do jogo)
+*.apk
+*.exe
+*.zip
+*.dmg
+*.pck
+*.tpz
+
+# Arquivos temporários e de cache do Godot
+.godot/
+export_presets.cfg
+.DS_Store
+thumbs.db
+
+# Ignorar arquivos de dados específicos da plataforma
+# (Se você usar dados de usuário que não devem ser versionados)
+user://
