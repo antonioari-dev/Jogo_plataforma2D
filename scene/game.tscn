@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://47b27bl65jld"]
+[gd_scene load_steps=14 format=4 uid="uid://47b27bl65jld"]
 
 [ext_resource type="PackedScene" uid="uid://bur8obi3tyea3" path="res://entities/player.tscn" id="1_5kiuu"]
 [ext_resource type="TileSet" uid="uid://g1nxw6fe4xoh" path="res://tiles/terain.tres" id="2_xwcet"]
@@ -10,14 +10,20 @@
 [ext_resource type="PackedScene" uid="uid://ufair32bh388" path="res://entities/camera.tscn" id="7_qpk70"]
 [ext_resource type="Texture2D" uid="uid://dpogqxjpchei1" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/1 - Foreground_scenery.png" id="8_yq8tf"]
 [ext_resource type="PackedScene" uid="uid://cgw4p7fil1441" path="res://entities/level_and.tscn" id="10_yq8tf"]
+[ext_resource type="Script" uid="uid://drjqoh2bdm8nj" path="res://scripts/voltar_inicio.gd" id="11_ym5sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ym5sv"]
+size = Vector2(64, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sng2h"]
+size = Vector2(1256, 20)
 
 [node name="Game" type="Node2D"]
+position = Vector2(0, 1)
 metadata/_edit_vertical_guides_ = [2960.0, 2960.0]
 
 [node name="player" parent="." instance=ExtResource("1_5kiuu")]
-position = Vector2(27, 100)
+position = Vector2(66, 160)
 
 [node name="tiles" type="Node2D" parent="."]
 position = Vector2(0, -4)
@@ -94,9 +100,31 @@ limit_right = 2959
 limit_bottom = 210
 
 [node name="level_and" parent="." instance=ExtResource("10_yq8tf")]
-position = Vector2(2853, 149)
+position = Vector2(2887, 169)
+next_level = "forest"
 
 [node name="level_and" parent="level_and" index="0"]
+position = Vector2(11, 4)
 shape = SubResource("RectangleShape2D_ym5sv")
+
+[node name="voltar_inicio" type="Area2D" parent="."]
+position = Vector2(1269, 250)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("11_ym5sv")
+
+[node name="voltar" type="CollisionShape2D" parent="voltar_inicio"]
+position = Vector2(626, 0)
+shape = SubResource("RectangleShape2D_sng2h")
+
+[node name="checkpoint_inicio" type="ColorRect" parent="."]
+offset_left = 39.0
+offset_top = 125.0
+offset_right = 58.0
+offset_bottom = 146.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="body_entered" from="voltar_inicio" to="player" method="_on_voltar_inicio_body_entered"]
+[connection signal="body_entered" from="voltar_inicio" to="voltar_inicio" method="_on_body_entered"]
 
 [editable path="level_and"]

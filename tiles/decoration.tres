@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dh6jmmaout7rc"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dh6jmmaout7rc"]
 
 [ext_resource type="Texture2D" uid="uid://c5mr8ws2a30gu" path="res://sprites/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="1_3e52g"]
 [ext_resource type="Texture2D" uid="uid://c3658blv7sx3m" path="res://sprites/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="2_4pksi"]
 [ext_resource type="Texture2D" uid="uid://dro4pircubuih" path="res://sprites/Seasonal Tilesets/3 - Tropics/Tropics_entities (16 x 16).png" id="2_k56fq"]
 [ext_resource type="Texture2D" uid="uid://lnvsrmwy6s8q" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="4_k56fq"]
+[ext_resource type="Texture2D" uid="uid://heoxkatus4c1" path="res://sprites/machine/6 Traps/2.png" id="5_b4fdq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xwcet"]
 texture = ExtResource("1_3e52g")
@@ -111,8 +112,14 @@ texture = ExtResource("4_k56fq")
 5:1/size_in_atlas = Vector2i(3, 3)
 5:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lb8v8"]
+texture = ExtResource("5_b4fdq")
+0:0/size_in_atlas = Vector2i(21, 3)
+0:0/0 = 0
+
 [resource]
 sources/0 = SubResource("TileSetAtlasSource_xwcet")
 sources/2 = SubResource("TileSetAtlasSource_p1ry8")
 sources/1 = SubResource("TileSetAtlasSource_b4fdq")
 sources/3 = SubResource("TileSetAtlasSource_hjahj")
+sources/4 = SubResource("TileSetAtlasSource_lb8v8")

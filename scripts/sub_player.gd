@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anima: AnimatedSprite2D = $AnimatedSprite2D
 
 
-const SPEED = 80.0
+const SPEED = 60.0
 const JUMP_VELOCITY = -300.0
 
 
@@ -26,19 +26,17 @@ func _physics_process(delta: float) -> void:
 	if is_on_floor():
 #Essa parte faz o piguin mudar a direçao pra frente e para traz
 		if direction > 0:
-			anim.flip_h = false
-			anim.play("walk")
+			anima.flip_h = false
+			anima.play("walk")
 		elif direction < 0:
-			anim.flip_h = true		
-			anim.play("walk")
+			anima.flip_h = true		
+			anima.play("walk")
 		else:
-			anim.play("idle")
+			anima.play("idle")
 	else:
-		anim.play("jump")		
+		anima.play("jump")		
 
 	move_and_slide()
 	
-	
-	
-func _on_voltar_inicio_body_entered(_body: Node2D) -> void:
-	position = $"../checkpoint_inicio".position
+
+	move_and_slide()
